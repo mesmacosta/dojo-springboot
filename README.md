@@ -1,4 +1,4 @@
-# Dojo Springtboot
+# Dojo Springboot
 
 Projeto com os fontes necessarios para rodar o dojo de springboot
 
