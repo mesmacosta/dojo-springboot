@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import com.dojo.springboot.musicas.dao.MusicaDao;
@@ -23,11 +24,13 @@ public class MusicasServiceImpl implements MusicasService {
 	}	
 
 	@Override
+	@Cacheable("musicaByFilter")
 	public List<Musica> getMusicasByNomeMusicaOrArtista(String nome) {
 		return dao.findMusicaByNomeContainingOrArtistaNomeContainingOrderByArtistaNomeAscNomeAsc(nome, nome);
 	}
 
 	@Override
+	@Cacheable("musicaByID")
 	public Musica getMusica(String id) {
 		Optional<Musica> musica = dao.findById(id);
 		return musica.orElse(null);
