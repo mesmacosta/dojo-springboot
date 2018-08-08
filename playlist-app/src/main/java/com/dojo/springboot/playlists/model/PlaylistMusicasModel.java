@@ -1,6 +1,9 @@
-package com.dojo.springboot.playlists.model;
+package com.dojo.springboot.playlists.model;	
 
 import java.io.Serializable;
+
+import com.dojo.springboot.playlists.entity.Musica;
+
 
 public class PlaylistMusicasModel implements Serializable {
 
@@ -13,7 +16,7 @@ public class PlaylistMusicasModel implements Serializable {
 
 	private String musicaId;
 
-	private MusicaModel musica;
+	private Musica musica;
 
 	public String getPlaylistId() {
 		return playlistId;
@@ -31,11 +34,11 @@ public class PlaylistMusicasModel implements Serializable {
 		this.musicaId = musicaId;
 	}
 
-	public MusicaModel getMusica() {
+	public Musica getMusica() {
 		return musica;
 	}
 
-	public void setMusica(MusicaModel musica) {
+	public void setMusica(Musica musica) {
 		this.musica = musica;
 	}
 }

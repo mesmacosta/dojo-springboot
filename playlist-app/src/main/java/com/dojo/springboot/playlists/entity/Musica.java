@@ -8,20 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Artistas")
-public class Artista implements Serializable {
+@Table(name="Musicas")  
+public class Musica implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -4020446369049685722L;
+	private static final long serialVersionUID = -4436032799597928128L;
 
 	@Id
 	@Column(name = "Id")
 	private String id;
-
-	@Column(name = "Nome")
-	private String nome;
 
 
 	public String getId() {
@@ -31,13 +28,4 @@ public class Artista implements Serializable {
 	public void setId(String id) {
 		this.id = id;
 	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
 }
