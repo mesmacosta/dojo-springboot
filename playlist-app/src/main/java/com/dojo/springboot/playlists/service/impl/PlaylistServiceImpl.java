@@ -14,6 +14,7 @@ import com.dojo.springboot.playlists.entity.Usuario;
 import com.dojo.springboot.playlists.model.PlaylistModel;
 import com.dojo.springboot.playlists.model.PlaylistMusicasModel;
 import com.dojo.springboot.playlists.model.UsuarioModel;
+import com.dojo.springboot.playlists.service.MusicaService;
 import com.dojo.springboot.playlists.service.PlaylistService;
 
 @Component
@@ -22,6 +23,9 @@ public class PlaylistServiceImpl implements PlaylistService {
 	@Autowired
 	private PlaylistDao dao;
 
+	@Autowired
+	private MusicaService musicaService;
+	
 	@Override
 	@Transactional(readOnly = true)
 	public PlaylistModel getByUsuarioNome(String nome) {
@@ -52,9 +56,9 @@ public class PlaylistServiceImpl implements PlaylistService {
 
 	private PlaylistMusicasModel buildPlaylistMusica(Musica musica, Playlist playlist) {
 		PlaylistMusicasModel playlistMusica = new PlaylistMusicasModel();
-		playlistMusica.setMusicaId(musica.getId());
-		//FIXME Fazer Chamada ao microserviço de músicas para enriquecer o objeto playlist
-		playlistMusica.setMusica(musica);
+		String musicaId = musica.getId();
+		playlistMusica.setMusicaId(musicaId);
+		playlistMusica.setMusica(musicaService.getById(musicaId));
 		playlistMusica.setPlaylistId(playlist.getId());
 		return playlistMusica;
 	}

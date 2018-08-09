@@ -16,7 +16,7 @@ public class PlaylistMusicasModel implements Serializable {
 
 	private String musicaId;
 
-	private Musica musica;
+	private MusicaModel musica;
 
 	public String getPlaylistId() {
 		return playlistId;
@@ -34,11 +34,11 @@ public class PlaylistMusicasModel implements Serializable {
 		this.musicaId = musicaId;
 	}
 
-	public Musica getMusica() {
+	public MusicaModel getMusica() {
 		return musica;
 	}
 
-	public void setMusica(Musica musica) {
+	public void setMusica(MusicaModel musica) {
 		this.musica = musica;
 	}
 }
