@@ -11,7 +11,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/mycelo/dojo-springboot-config    
+          uri: https://github.com/mycelo/dojo-springboot-config-noss   
   output:
     ansi:
       enabled: always
